@@ -12,9 +12,15 @@ const login = async () => {
   if (username.value == "") return message.value = "Username cannot be empty."
   else if (password.value == "") return message.value = "Password cannot be empty."
   try {
-    const res = await axios.post("http://localhost:3000/api/auth/login", {
+    const res = await axios.post('https://tagum-marketplace.vercel.app/api/auth/login', {
       username: username.value,
       password: password.value
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      }
     });
 
     if (res.data.token) {

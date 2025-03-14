@@ -11,7 +11,7 @@ const errorMessage = ref("");
 const updateAccount = async () => {
 try {
     const api = axios.create({
-        baseURL: "http://localhost:3000/api/auth",
+        baseURL: "https://tagum-marketplace.vercel.app/api/auth",
     });
     api.interceptors.request.use((config) => {
         const token = localStorage.getItem('token');
